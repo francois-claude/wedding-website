@@ -9,6 +9,11 @@
 @import "partials/colors";
 @import "partials/layout";
 
+// Fix for navigation anchor links
+html {
+  scroll-padding-top: 80px;
+}
+
 /* ==========================================================================
 Global Styles
 ========================================================================== */
@@ -293,7 +298,7 @@ Hero
 }
 .fixed {
   position: fixed;
-  background-color: rgba(55, 36, 40, .88);
+  background-color: rgba(44, 62, 80, .9);
   z-index: 999;
   width: 100%;
 }
