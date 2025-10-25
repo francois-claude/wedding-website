@@ -1,15 +1,23 @@
+# IDE files
 .idea/
 *.iml
 .DS_Store
 *.iws
 /out/
 .idea_modules/
-node_modules/
 atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+# Dependencies
+node_modules/
+bower_components
+jspm_packages/
+typings/
+
+# Logs
 logs
 *.log
 npm-debug.log*
@@ -19,20 +27,48 @@ pids
 *.pid
 *.seed
 *.pid.lock
+
+# Coverage and testing
 lib-cov
 coverage
 .nyc_output
 .grunt
-bower_components
-.lock-wscript
-build/Release
-jspm_packages/
-typings/
-.npm
 .eslintcache
 .node_repl_history
+
+# Build artifacts
+build/
+dist/
+Release/
 *.tgz
 .yarn-integrity
+
+# Environment files
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# SASS/CSS compilation artifacts
 .sass-cache/
 *.css.map
+css/styles.min.css
+css/ie.min.css
+css/print.min.css
+
+# JavaScript compilation artifacts
+js/scripts.min.js
+js/scripts.min.js.map
+
+# Image optimization artifacts
+img/optimized/
+img/webp/
+
+# Security and audit files
+sri-hashes.json
+security-report.json
+
+# Modern build artifacts
+js/modern/
+sass/modern/
