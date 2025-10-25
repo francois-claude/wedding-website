@@ -67,26 +67,44 @@ sudo cp -r * /var/www/wedding-website/
 sudo chown -R www-data:www-data /var/www/wedding-website
 ```
 
-2. **Install systemd service:**
+2. **Configure Nginx:**
+Create `/etc/nginx/sites-available/wedding-website`:
+```nginx
+server {
+    listen 80;
+    server_name your-domain.com;
+    root /var/www/wedding-website;
+    index index.html;
+    
+    location / {
+        try_files $uri $uri/ =404;
+    }
+    
+    # Security headers
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    
+    # Cache static assets
+    location ~* \.(css|js|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
+```
+
+3. **Enable the site:**
+```bash
+sudo ln -s /etc/nginx/sites-available/wedding-website /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+4. **Install systemd service (optional):**
 ```bash
 sudo cp wedding-website.service /etc/systemd/system/
 sudo systemctl daemon-reload
-```
-
-3. **Enable and start the service:**
-```bash
 sudo systemctl enable wedding-website
-sudo systemctl start wedding-website
-```
-
-4. **Check service status:**
-```bash
-sudo systemctl status wedding-website
-```
-
-5. **View logs:**
-```bash
-sudo journalctl -u wedding-website -f
 ```
 
 ### Nginx Configuration (Optional)

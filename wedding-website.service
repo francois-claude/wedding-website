@@ -1,27 +1,17 @@
 [Unit]
-Description=Wedding Website HTTP Server
-After=network.target
+Description=Wedding Website Nginx Server
+After=network.target nginx.service
 Wants=network.target
+Requires=nginx.service
 
 [Service]
-Type=simple
-User=www-data
-Group=www-data
-WorkingDirectory=/var/www/wedding-website
-ExecStart=/usr/bin/python3 -m http.server 8080
-Restart=always
-RestartSec=5
-StandardOutput=journal
-StandardError=journal
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/true
+ExecReload=/usr/sbin/nginx -s reload
 
-# Security settings
-NoNewPrivileges=true
-PrivateTmp=true
-ProtectSystem=strict
-ProtectHome=true
-ReadWritePaths=/var/www/wedding-website
-CapabilityBoundingSet=CAP_NET_BIND_SERVICE
-AmbientCapabilities=CAP_NET_BIND_SERVICE
+# This service ensures the wedding website is properly configured with nginx
+# The actual serving is handled by nginx itself
 
 [Install]
 WantedBy=multi-user.target
