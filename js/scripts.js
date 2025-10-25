@@ -147,7 +147,7 @@ $(document).ready(function () {
 
     for (var i = 0; i < share_bar.length; i++) {
         var html = '<iframe allowtransparency="true" frameborder="0" scrolling="no"' +
-            'src="https://platform.twitter.com/widgets/tweet_button.html?url=' + encodeURIComponent(window.location) + '&amp;text=' + encodeURIComponent(document.title) + '&amp;via=ramswarooppatra&amp;hashtags=francoisandlaurel&amp;count=horizontal"' +
+            'src="https://platform.twitter.com/widgets/tweet_button.html?url=' + encodeURIComponent(window.location) + '&amp;text=' + encodeURIComponent(document.title) + '&amp;via=weddingsite&amp;hashtags=francoisandlaurel&amp;count=horizontal"' +
             'style="width:105px; height:21px;">' +
             '</iframe>' +
 
@@ -200,7 +200,7 @@ $(document).ready(function () {
             address: 'Tavernetta, Four Seasons Hotel, Vail, Colorado',
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues, please contact Mr. Amit Roy at +91 9876543210."
+            description: "We can't wait to see you on our big day. For any queries or issues, please contact Mr. John Smith at +1 (123) 456-7890."
         }
     });
 
